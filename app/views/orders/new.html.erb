@@ -9,7 +9,7 @@
   <div class="form-inputs" style="width: 600px; margin: 0px auto">
     <%= f.input :designation %>
     <%= f.label "Pays" %>
-    <%= country_select("shipping_address", "country", priority_countries: ["FR", "US", "CA"])) %>
+    <%= country_select("shipping_address", "country", priority_countries: ["FR", "US", "CA"]) %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, "Ajouter une adresse" %>
