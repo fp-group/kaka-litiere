@@ -9,7 +9,7 @@
           </div>
           <div class="product-specs">
             <h2><%= product.designation %></h2>
-            <p data-unit-price="<%= product.unit_price %>" class="price">Prix unitaire : <b><%= product.unit_price %> €</b></p>
+            <p data-unit-price="<%= product.unit_price %>" class="price">Prix unitaire : <b>€<%= product.unit_price %></b></p>
             <div class="qty-selector">
               <button class="button-left button-left-<%= index %>">-</button>
                 <input type="number" name="order[order_details_attributes][<%= index %>][quantity]" value="0" class="qty-value" readonly="readonly">
