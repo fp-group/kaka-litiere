@@ -1,10 +1,10 @@
-<h1>List of products</h2>
+<h1>Liste des produits</h2>
 <table class="products-container">
   <% @products.each_with_index do |product, index| %>
     <tr class="product-list-element">
       <td><%= product.designation %></td>
       <td class="price">$<%= product.unit_price %></td>
-      <td><%= link_to edit_admin_product_path(product) do %>Edit product<% end %></td>
+      <td><%= link_to edit_admin_product_path(product) do %>Modifier le produit<% end %></td>
     </tr>
   <% end %>
 </table>

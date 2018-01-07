@@ -1,78 +1,63 @@
-<h1>Krazy Kat Litter</h1>
+<h1>La Litière des chats mal élevés</h1>
 <div class="home-3-pics">
   <div>
     <%= image_tag('box_of_176_oz.png', height: 200, class: 'center') %>
-    <p class="center"><b class="description"><%= @box.designation %></b><br>$<%= @box.unit_price %></p>
+    <p class="center"><b class="description"><%= @box.designation %></b><br>€<%= @box.unit_price %></p>
   </div>
   <div>
     <%= image_tag('kaka_kat.png', width: 250, class: 'center') %>
   </div>
   <div>
     <%= image_tag('display-box_of_6_boxes.png', height: 200, class: 'center') %>
-    <p class="center"><b class="description"><%= @display_box.designation %></b><br>$<%= @display_box.unit_price %></p>
+    <p class="center"><b class="description"><%= @display_box.designation %></b><br>€<%= @display_box.unit_price %></p>
   </div>
 </div>
-<p class="center"><b>Kaka</b>: French word for poop.<br><i>Synonyms: number two, dung.</i></p>
 <div class="order-button-div">
-  <%= link_to shop_path do %>
-    <button class="order-button">Go to e-Shop</button>
+  <%= link_to 'pages/shop' do %>
+    <button class="order-button">La Boutique</button>
   <% end %>
 </div>
-<h1>KAKA - The Concept</h1>
-<p>KAKA is astounding, uncompromising and exacting,
-it doesn’t claim to be anything other than
-what it is.</p>
-<p>KAKA is nothing but cat litter, opting for a clearcut
-and <b>ultra-natural ethical positioning</b> rather than
-generalisations.</p>
-<p>KAKA, unlike the competitors’ traditional products,
-is quite simply:</p>
+<h1>Le concept de KAKA</h1>
+<p>KAKA est étonnant, à la fois <b>sans concession et empreint d’exigence</b>, résolument franc et sincère.</p>
+<p>KAKA est une <b>litière engagée</b>, préférant une <b>éthique radicale et ultra-naturelle</b> plutôt qu’un positionnement généralisé.</p>
+<p>KAKA, à l’inverse des produits traditionnels de la concurrence est tout simplement :</p>
 <ul>
   <b>
-    <li>Different</li>
-    <li>Fun</li>
-    <li>Cheeky</li>
-    <li>Natural and free of hang-ups.</li>
+    <li>Décalé</li>
+    <li>Rigolo</li>
+    <li>Espiègle</li>
+    <li>Décomplexé</li>
+    <li>Naturel.</li>
   </b>
 </ul>
-<p><b>After all, why pussyfoot around?</b></p>
-<h1>Who manufactures KAKA ?</h1>
-<p>We are a <b>family-owned company</b>.<br>We have been mainly <b>extracting minerals since
-1927</b>.<br>We are <b>passionate</b> about what we do.</p>
-<p>We look for <b>simple solutions</b> and control our
-entire value chain.</p>
-<p>At the heart of commitment you will find
-the use of a <b>process that recovers essential
-components from minerals</b> and the assurance
-of <b>responsible production</b>: reliable, low-carbon
-footprint and <b>bio-compatible</b>.</p>
-<h1>Where does Kaka come from ?</h1>
-<p><b>Normandy</b>. KAKA “Krazy Kat Litter” is produced
-at our site from clay that is rigorously selected
-<b>in our quarries</b>.</p>
+<p><b>Parce qu'on appelle un chat, un chat !</b></p>
+<h1>Qui fabrique KAKA ?</h1>
+<p>Nous sommes une <b>entreprise familiale</b>.<br><b>Nous</b> extrayons, essentiellement, des minéraux <b>depuis 1927</b>.<br>Nous exerçons notre métier <b>avec passion</b>.</p>
+<p>Nous privilégions ainsi les <b>solutions simples</b> et contrôlons l'intégralité de notre chaîne de valeur.</p>
+<p>Au coeur de nos engagements se trouvent la mise en oeuvre de <b>process valorisant les éléments essentiels issues des minéraux</b> ainsi que la garantie d'une <b>production responsable</b> ; faible émettrice de carbone et <b>bio-compatible</b>.</p>
+<h1>D'où vient KAKA ?</h1>
+<p>De <b>Normandie</b> ! KAKA “La litière des chats mal élevés” est produite sur notre site à partir <b>d'argiles</b> rigoureusement sélectionnées <b>dans nos carrières</b>.</p>
 <%= image_tag('france_map.png', width: 300, class: 'center') %>
-<h1>KAKA’s advantages</h1>
-<p>“KAKA, Krazy Kat Litter ” is competitive in terms
-of its price and specific qualities:</p>
+<h1>Les avantages de KAKA</h1>
+<p>KAKA est un produit compétitif par son prix et ses qualités spécifiques :</p>
 <ul>
-  <li>Clumping</li>
-  <li>Absorbent</li>
-  <li>Odorless</li>
-  <li><b>100% mineral</b>, natural, free of chemical additives</li>
-  <li><b>Soft and light</b> because of its tighter and more
-compact grain size</li>
-  <li>Stays <b>dry on the surface</b></li>
-  <li>Attractive <b>beige colour</b></li>
-  <li>Sold in 176 oz <b>boxes</b>.</li>
+  <li>Agglomérante</li>
+  <li>Absorbante</li>
+  <li>Inodore</li>
+  <li><b>100% minérale</b>, naturelle, sans additif chimique</li>
+  <li><b>Douce et légère</b> grâce à une granulométrie <b>plus serrée et compacte</b></li>
+  <li><b>reste sèche en surface</b></li>
+  <li>d'une <b>belle couleur beige</b></li>
+  <li>conditionnée dans des <b>boîtes</b> de 5kg avec poignée de transport.</li>
 </ul>
-<h1>The conditioning of KAKA</h1>
+<h1>Le conditionnement de KAKA</h1>
   <%= image_tag('box_of_176_oz.png', width: 150, class: 'center') %>
-  <ul><li>Each box <b>contains 176 oz</b> of litter.</li></ul>
+  <ul><li>Chaque boîte <b>contient 5kg</b>.</li></ul>
   <%= image_tag('display-box_of_6_boxes.png', width: 150, class: 'center') %>
-  <ul><li>Each display-box contains <b>6 boxes</b> of litter.</li></ul>
+  <ul><li>Chaque carton contient 6 boîtes de litière.</li></ul>
 <div class="order-button-div">
-  <%= link_to shop_path do %>
-    <button class="order-button">Go to e-Shop</button>
+  <%= link_to 'pages/shop' do %>
+    <button class="order-button">La Boutique</button>
   <% end %>
 </div>
 <%= render partial: 'shared/footer' %>

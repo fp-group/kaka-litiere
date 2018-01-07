@@ -6,11 +6,11 @@
   </div>
     <% if current_user %>
       <%= link_to destroy_user_session_path, method: :delete do %>
-        <div class="nav-link">Log Out</div>
+        <div class="nav-link">Déconnexion</div>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <div class="nav-link">Log In</div>
+        <div class="nav-link">Connexion</div>
       <% end %>
     <% end %>
 </nav>
