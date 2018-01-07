@@ -9,7 +9,7 @@
           </div>
           <div class="product-specs">
             <h2><%= product.designation %></h2>
-            <p data-unit-price="<%= product.unit_price %>" class="price">Unit price: <b>$<%= product.unit_price %></b></p>
+            <p data-unit-price="<%= product.unit_price %>" class="price">Prix unitaire : <b>€<%= product.unit_price %></b></p>
             <div class="qty-selector">
               <button class="button-left button-left-<%= index %>">-</button>
                 <input type="number" name="order[order_details_attributes][<%= index %>][quantity]" value="0" class="qty-value" readonly="readonly">
@@ -21,9 +21,9 @@
       <input type="hidden" name="order[order_details_attributes][<%= index %>][product_id]" value="<%= product.id %>">
     <% end %>
   </div>
-  <p class="price-note"><b>Note</b>: Prices do not include taxes and shipping.</p>
+  <p class="price-note"><b>Note</b> : Ces prix incluent la livraison en France métropolitaine (Corse comprise). Si vous souhaitez être livré(e) au Bénélux ou en Suisse, des frais de transport vous seront renseignés par email avant expédition.</p>
   <div class="order-button-div">
-    <button class="order-button">Order Now</button>
+    <button class="order-button">Pré-commander</button>
   </div>
 <% end %>
 <%= render partial: 'shared/footer' %>

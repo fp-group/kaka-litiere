@@ -1,18 +1,18 @@
-<h1>Fill in your order information</h2>
+<h1>Veuillez remplir vos informations</h2>
 
 <div class="modal">
   <div class="button-container">
-    <button class="close-modal">Close</button>
+    <button class="close-modal">Fermer</button>
   </div>
-  <h1>Add an address</h1>
+  <h1>Ajouter une adresse</h1>
   <%= simple_form_for @shipping_address, remote: true do |f| %>
   <div class="form-inputs" style="width: 600px; margin: 0px auto">
     <%= f.input :designation %>
-    <%= f.label "Country" %>
-    <%= country_select("shipping_address", "country", priority_countries: ["US", "CA", "FR"]) %>
+    <%= f.label "Pays" %>
+    <%= country_select("shipping_address", "country", priority_countries: ["FR", "US", "CA"]) %>
   </div>
   <div class="form-actions">
-    <%= f.button :submit, "Add Address" %>
+    <%= f.button :submit, "Ajouter une adresse" %>
   </div>
   <% end %>
 </div>
@@ -21,9 +21,9 @@
   <%= f.error_notification %>
   <div class="form-inputs" style="width: 600px; margin: 0px auto">
     <%= f.association :shipping_address, collection: @shipping_addresses, label_method: :full_address, include_blank: false, as: :radio_buttons %>
-    <button class="open-modal">+ Add an address</button>
-    <%= f.label "Additional details (optional)" %>
-    <%= f.input :observations, label: false, placeholder: "Phone number, building code, floor, and preferred time of delivery." %>
+    <button class="open-modal">+ Ajouter une adresse</button>
+    <%= f.label "Informations complémentaires (facultatif)" %>
+    <%= f.input :observations, label: false, placeholder: "Téléphone, code d'immeuble, étage, et heure souhaitée de livraison." %>
   </div>
   <br>
   <% @products.each_with_index do |product, index| %>
@@ -36,7 +36,7 @@
             </div>
             <div class="product-specs">
               <h2><%= product.designation %></h2>
-              <p data-unit-price="<%= product.unit_price %>" class="price">Unit price: <b>$<%= product.unit_price %></b></p>
+              <p data-unit-price="<%= product.unit_price %>" class="price">Prix unitaire : <b>€<%= product.unit_price %></b></p>
               <div class="qty-selector">
                 <button class="button-left button-left-<%= index %>">-</button>
                 <%= order_detail.input :quantity, as: :integer, label: false, readonly: true, input_html: {value: params[:order][:order_details_attributes][index.to_s][:quantity]} %>
@@ -50,10 +50,10 @@
     <% end %>
   </div>
   <div class="form-actions">
-    <p class="total-price center">Total Price: $<b data-total-price="0">0</b></p>
-    <p class="price-note">Note: These prices do not include taxes and shipping. You will get in contact with our vendor after pre-ordering.</p>
-    <p class="price-note">All weights are gross weights.</p>
-    <%= f.button :submit, "Confirm Pre-Order" %>
+    <p class="total-price center">Prix Total TTC : €<b data-total-price="0">0</b></p>
+    <p class="price-note">Note : Ce prix inclut la livraison en France métropolitaine (Corse comprise). Si vous souhaitez être livré(e) ailleurs, des frais de transport vous seront renseignés par email avant expédition.</p>
+    <p class="price-note">Les poids indiqués comprennent l'emballage.</p>
+    <%= f.button :submit, "Confirmer la pré-commande" %>
   </div>
 <% end %>
 
