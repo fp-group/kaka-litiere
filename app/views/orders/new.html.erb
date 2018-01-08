@@ -7,7 +7,8 @@
   <h1>Ajouter une adresse</h1>
   <%= simple_form_for @shipping_address, remote: true do |f| %>
   <div class="form-inputs" style="width: 600px; margin: 0px auto">
-    <%= f.input :designation %>
+    <label>Adresse</label>
+    <%= f.input :designation, label: false, placeholder: 'No, rue, ville, code postal' %>
     <%= f.label "Pays" %>
     <%= country_select("shipping_address", "country", priority_countries: ["FR", "US", "CA"]) %>
   </div>
@@ -20,7 +21,8 @@
 <%= simple_form_for @order do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs" style="width: 600px; margin: 0px auto">
-    <%= f.association :shipping_address, collection: @shipping_addresses, label_method: :full_address, include_blank: false, as: :radio_buttons %>
+    <label>Adresse de livraison</label>
+    <%= f.association :shipping_address, collection: @shipping_addresses, label_method: :full_address, include_blank: false, as: :radio_buttons, label: false %>
     <button class="open-modal">+ Ajouter une adresse</button>
     <%= f.label "Informations complémentaires (facultatif)" %>
     <%= f.input :observations, label: false, placeholder: "Téléphone, code d'immeuble, étage, et heure souhaitée de livraison." %>
