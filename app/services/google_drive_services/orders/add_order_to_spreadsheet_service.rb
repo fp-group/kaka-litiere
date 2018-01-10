@@ -12,9 +12,9 @@ module GoogleDriveServices
         next_row = worksheet.num_rows + 1
         populate_spreadsheet(worksheet, next_row)
 
-        # Populating the US spreadsheet if applicable
-        if @order.shipping_address.country == 'US' || @order.shipping_address.country == 'CA'
-          worksheet = @google_drive_session.spreadsheet_by_key(Config::SPREADSHEET_KEY_US).worksheets[0]
+        # Populating the FR spreadsheet if applicable
+        if @order.shipping_address.country == 'FR'
+          worksheet = @google_drive_session.spreadsheet_by_key(Config::SPREADSHEET_KEY_FR).worksheets[0]
           next_row = worksheet.num_rows + 1
           populate_spreadsheet(worksheet, next_row)
         end
