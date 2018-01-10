@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
 
-  has_many :order_details, inverse_of: :order
+  has_many :order_details, inverse_of: :order, dependent: :destroy
   belongs_to :shipping_address
 
   accepts_nested_attributes_for :order_details

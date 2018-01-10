@@ -1,6 +1,6 @@
 class ShippingAddress < ApplicationRecord
   belongs_to :user
-  has_many :orders
+  has_many :orders, dependent: :nullify
 
   def full_address
     "#{self.designation} - #{self.country_name}"
