@@ -40,9 +40,16 @@ nav {
   border-radius: 10px 0px 0px 10px;
   color: #FFF;
   position: absolute;
-  right: 0px;
   top: 7px;
   padding: 5px 10px
+}
+
+.nav-link-right {
+  right: 0px;
+}
+
+.nav-link-left {
+  left: 0px;
 }
 
 .nav-link a,
@@ -426,7 +433,14 @@ div.alert > button {
   .nav-link {
     border-radius: 10px;
     position: absolute;
-    right: 100px;
     top: 7px;
+  }
+
+  .nav-link-right {
+    right: 100px;
+  }
+
+  .nav-link-left {
+    left: 100px;
   }
 }

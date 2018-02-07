@@ -8,13 +8,13 @@ module GoogleDriveServices
 
       def call
         # Populating the Global spreadsheet
-        worksheet = @google_drive_session.spreadsheet_by_key(Config::SPREADSHEET_KEY_GLOBAL).worksheets[0]
+        worksheet = @google_drive_session.spreadsheet_by_key(Orders::Config::SPREADSHEET_KEY_GLOBAL).worksheets[0]
         next_row = worksheet.num_rows + 1
         populate_spreadsheet(worksheet, next_row)
 
         # Populating the FR spreadsheet if applicable
         if @order.shipping_address.country == 'FR'
-          worksheet = @google_drive_session.spreadsheet_by_key(Config::SPREADSHEET_KEY_FR).worksheets[0]
+          worksheet = @google_drive_session.spreadsheet_by_key(Orders::Config::SPREADSHEET_KEY_FR).worksheets[0]
           next_row = worksheet.num_rows + 1
           populate_spreadsheet(worksheet, next_row)
         end
