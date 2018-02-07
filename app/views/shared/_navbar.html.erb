@@ -1,4 +1,9 @@
 <nav>
+  <% if current_user && current_user.admin %>
+    <%= link_to admin_products_path do %>
+      <div class="nav-link nav-link-left">Éditer produits</div>
+    <% end %>
+  <% end %>
   <div>
     <%= link_to root_path do %>
       <%= image_tag("kaka_logotype.png", class: 'logotype') %>
@@ -6,11 +11,11 @@
   </div>
     <% if current_user %>
       <%= link_to destroy_user_session_path, method: :delete do %>
-        <div class="nav-link">Déconnexion</div>
+        <div class="nav-link nav-link-right">Déconnexion</div>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <div class="nav-link">Connexion</div>
+        <div class="nav-link nav-link-right">Connexion</div>
       <% end %>
     <% end %>
 </nav>

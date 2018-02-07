@@ -64,6 +64,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bugsnag (6.6.3)
+      concurrent-ruby (~> 1.0)
     builder (3.2.3)
     byebug (9.1.0)
     coderay (1.1.2)
@@ -270,6 +272,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bugsnag
   country_select
   devise!
   figaro

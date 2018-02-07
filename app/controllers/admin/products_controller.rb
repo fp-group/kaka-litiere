@@ -4,7 +4,7 @@ module Admin
     before_action :verify_admin!
 
     def index
-      @products = Product.all
+      @products = Product.all.order(:sku)
     end
 
     def edit
@@ -12,7 +12,7 @@ module Admin
 
     def update
       if @product.update(product_params)
-        redirect_to admin_products_path, notice: 'Product was successfully updated.'
+        redirect_to admin_products_path, notice: 'Le produit a été mis à jour.'
       else
         render :edit
       end
@@ -29,7 +29,7 @@ module Admin
 
     def verify_admin!
       unless current_user.admin
-        redirect_to root_path, alert: "You're not authorized to access this part of the website."
+        redirect_to root_path, alert: "Vous n'êtes pas autorisé(e) à accéder à cette page."
       end
     end
   end
