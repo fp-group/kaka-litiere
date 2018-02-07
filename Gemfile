@@ -25,6 +25,7 @@ gem "letter_opener", group: :development
 gem 'postmark-rails'
 
 gem 'bugsnag'
+gem 'user_agent_parser'
 
 group :development, :test do
   gem 'binding_of_caller'
