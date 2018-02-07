@@ -258,6 +258,7 @@ GEM
     uglifier (4.1.2)
       execjs (>= 0.3.0, < 3)
     unicode_utils (1.4.0)
+    user_agent_parser (2.4.1)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -294,6 +295,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
+  user_agent_parser
 
 RUBY VERSION
    ruby 2.3.0p0
