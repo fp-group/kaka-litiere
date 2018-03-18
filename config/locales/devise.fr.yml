@@ -1,5 +1,17 @@
 fr:
   activerecord:
+    errors:
+      models:
+        order:
+          attributes:
+            shipping_address:
+              required: Veuillez ajouter une adresse avant de confirmer votre commande.
+        user:
+          attributes:
+            email:
+              taken: Un compte utilisateur avec cet email existe déjà.
+            password:
+              blank: Vous devez renseigner un mot de passe pour votre compte.
     attributes:
       user:
         confirmation_sent_at: Date d'envoi de la confirmation

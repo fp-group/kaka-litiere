@@ -1,15 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :set_order_context, only: [:new, :create, :update]
+  before_action :set_order_context, only: [:new, :create]
 
   def new
-    @order                  = Order.new()
+    @order                  = Order.new(order_params)
     @order.shipping_address = current_user.shipping_addresses.first
     @shipping_address       = ShippingAddress.new
-    @order.order_details.build
   end
 
   def create
-    @order = Order.new(order_params)
+    @order      = Order.new(order_params)
     @order.user = current_user
     @order.first_order! if current_user.no_orders_yet?
     @order.compute_total_price_ht!
@@ -19,7 +18,10 @@ class OrdersController < ApplicationController
       ::Mailers::Orders::SendConfirmationToUser.new(@order, current_user).call
       redirect_to order_success_path(@order)
     else
-      flash[:notice] = "There was an issue with your order. Please try again."
+      @order.order_details.build if @order.order_details.empty?
+      @shipping_address = ShippingAddress.new
+
+      flash.now[:alert] = "Il y a eu un problème avec votre commande. Vérifiez les informations fournies."
       render 'new'
     end
   end

@@ -1,6 +1,5 @@
-$(".modal").hide();
-
 var new_address = $("<%= j render 'input_shipping_address', shipping_address: @shipping_address, selected: true %>").hide();
+$(".order_shipping_addresses").append(new_address);
 
-$(".order_shipping_address").append(new_address);
+$(".modal").hide();
 new_address.slideDown();

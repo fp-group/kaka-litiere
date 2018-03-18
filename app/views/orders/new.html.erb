@@ -22,35 +22,38 @@
   <%= f.error_notification %>
   <div class="form-inputs" style="width: 600px; margin: 0px auto">
     <label>Adresse de livraison</label>
-    <%= f.association :shipping_address, collection: @shipping_addresses, label_method: :full_address, include_blank: false, as: :radio_buttons, label: false %>
+    <div class="order_shipping_addresses">
+      <%= f.association :shipping_address, collection: @shipping_addresses, label_method: :full_address, include_blank: false, as: :radio_buttons, label: false %>
+    </div>
     <button class="open-modal">+ Ajouter une adresse</button>
     <%= f.label "Informations complémentaires (facultatif)" %>
     <%= f.input :observations, label: false, placeholder: "Téléphone, code d'immeuble, étage, et heure souhaitée de livraison." %>
   </div>
   <br>
-  <% @products.each_with_index do |product, index| %>
-    <%= f.simple_fields_for "order_details" do |order_detail| %>
-    <div class="products-container">  
-        <div class="product">
-          <div class="product-element">
-            <div class="product-image">
-              <%= image_tag "#{product.normalized_designation}.png" %>
-            </div>
-            <div class="product-specs">
-              <h2><%= product.designation %></h2>
-              <p data-unit-price="<%= product.unit_price %>" class="price">Prix unitaire : <b>€<%= product.unit_price %></b></p>
-              <div class="qty-selector">
-                <button class="button-left button-left-<%= index %>">-</button>
-                <%= order_detail.input :quantity, as: :integer, label: false, readonly: true, input_html: {value: params[:order][:order_details_attributes][index.to_s][:quantity]} %>
-                <button class="button-right button-right-<%= index %>">+</button>
-              </div>
+
+  <%= counter = 0 %>
+  <%= f.simple_fields_for "order_details", @order.order_details do |order_detail_form| %>
+    <% counter += 1 %>
+    <div class="products-container">
+      <div class="product">
+        <div class="product-element">
+          <div class="product-image">
+            <%= image_tag "#{order_detail_form.object.product.normalized_designation}.png" %>
+          </div>
+          <div class="product-specs">
+            <h2><%= order_detail_form.object.product.designation %></h2>
+            <p data-unit-price="<%= order_detail_form.object.product.unit_price %>" class="price">Prix unitaire : <b>€<%= order_detail_form.object.product.unit_price %></b></p>
+            <div class="qty-selector">
+              <button class="button-left button-left-<%= counter %>">-</button>
+              <%= order_detail_form.input :quantity, as: :integer, label: false, readonly: true, input_html: {value: order_detail_form.object.quantity} %>
+              <button class="button-right button-right-<%= counter %>">+</button>
             </div>
           </div>
-          <%= order_detail.input :product_id, as: :hidden, input_html: {value: product.id} %>
         </div>
-      <% end %>
-    <% end %>
-  </div>
+        <%= order_detail_form.input :product_id, as: :hidden, input_html: {value: order_detail_form.object.product.id} %>
+      </div>
+    </div>
+  <% end %>
   <div class="form-actions">
     <p class="total-price center">Prix Total TTC : €<b data-total-price="0">0</b></p>
     <p class="price-note">Note : Ce prix inclut la livraison en France métropolitaine (Corse comprise). Si vous souhaitez être livré(e) ailleurs, des frais de transport vous seront renseignés par email avant expédition.</p>
